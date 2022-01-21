@@ -23,6 +23,10 @@ sketch = quick_draw_data_set[random_no];
 document.getElementById("sketch_to_drawn").innerHTML = "Sketch to be drawn: " + sketch;
 }
 
+function preload() {
+    classifier = ml5.imageClassifier('DoodleNet');
+ }
+
 function setup()
 {
 canvas = createCanvas(280,280);
@@ -33,8 +37,8 @@ canvas.mouseReleased(classifyCanvas);
 
 function draw()
 {
-    strokeWeight(13);
-stroke(0);
+    strokeWeight(10);
+stroke("black");
 if (mouseIsPressed) {
     line(pmouseX, pmouseY, mouseX, mouseY);
 }
@@ -65,9 +69,7 @@ updateCanvas();
 }
 }
 
-function preload() {
-   classifier = ml5.imageClassifier('DoodleNet');
-}
+
 
 
 
